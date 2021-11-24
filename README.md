@@ -1,5 +1,6 @@
 swagger - http://localhost:3000/api-docs/
-
+!!!!NEED TIME TO WAKE UP SERVER!!!!!!!!!!!!
+deploy - https://shared-boatneck-brake.glitch.me
 
 work with API 
 
@@ -11,24 +12,24 @@ work with API
 
 6. createNewUser or get user from DB
 Example
-http://localhost:3000/enter/
+http://localhost:3000/enter/ or https://shared-boatneck-brake.glitch.me
 body {
 login: "superUser",
 password: "123CV456dc68f"
 }
 7. get JWT token to work with blog messages
 Example
-http://localhost:3000/login/
+http://localhost:3000/login/ or https://shared-boatneck-brake.glitch.me
 body {
    login: "superUser",
    password: "123CV456dc68f"
 }
 8. get all messages (by default 20 messages)
 Example
-   http://localhost:3000/messages?limit=30
+   http://localhost:3000/messages?limit=30 or https://shared-boatneck-brake.glitch.me
 9. create new messages
 Example
-   http://localhost:3000/messages
+   http://localhost:3000/messages or https://shared-boatneck-brake.glitch.me
 body {
    post_text: "dasda dasdas dasd asdasd"
    post_media: "link"
@@ -36,7 +37,7 @@ body {
 }
 10. update message
 Example
-    http://localhost:3000/messages/{id}/author={author}
+    http://localhost:3000/messages/{id}/author={author} or https://shared-boatneck-brake.glitch.me
 body {
     "id": "d1d198f1-c456-4c14-b5c0-a3283e6a48a7",
     "created_at": "2021-11-24T05:36:34.502Z",
@@ -47,4 +48,4 @@ body {
 }
 11. delete message
     Example
-    http://localhost:3000/messages/{id}/author={author}
+    http://localhost:3000/messages/{id}/author={author} or https://shared-boatneck-brake.glitch.me
