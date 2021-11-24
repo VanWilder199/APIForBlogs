@@ -1,0 +1,11 @@
+# compiled output
+/dist
+/node_modules
+/.env
+
+# Logs
+logs
+*.log
+
+# IDEs and editors
+/.idea

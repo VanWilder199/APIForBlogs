@@ -1,0 +1,225 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Swagger server",
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "host": "github",
+  "basePath": "/v1",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/messages": {
+      "get": {
+        "summary": "List all messages",
+        "operationId": "listMessages",
+        "tags": [
+          "messages"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "How many items to return at one time (default 20)",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An paged array of messages",
+            "headers": {
+              "x-next": {
+                "type": "string",
+                "description": "return messages"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/messages"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a messages. look schemas messages",
+        "operationId": "create messages",
+        "tags": [
+          "messages"
+        ],
+        "responses": {
+          "200": {
+            "description": "create new messages",
+            "schema": {
+              "$ref": "#/definitions/messages"
+            }
+          }
+        }
+      }
+    },
+    "/messages{id}": {
+      "put": {
+        "summary": "Update a messages. look schemas messages",
+        "operationId": "Update messages",
+        "tags": [
+          "messages"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "add id messages",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "author",
+            "in": "query",
+            "description": "add author messages",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "create new messages",
+            "schema": {
+              "$ref": "#/definitions/messages"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "delete",
+        "operationId": "delete messages",
+        "tags": [
+          "messages"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "add id messages",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "author",
+            "in": "query",
+            "description": "add author messages",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "create new messages",
+            "schema": {
+              "$ref": "#/definitions/messages"
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "return JWT token",
+        "operationId": "get JWT token",
+        "tags": [
+          "login"
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "schema": {
+              "$ref": "#/definitions/jwt"
+            }
+          }
+        }
+      }
+    },
+    "/enter": {
+      "post": {
+        "summary": "create new user",
+        "operationId": "create new user",
+        "tags": [
+          "enter"
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "messages": {
+      "required": [
+        "post_text",
+        "post_media",
+        "author"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "post_text": {
+          "type": "string"
+        },
+        "post_media": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "user": {
+      "required": [
+        "login",
+        "password",
+        "author"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "login": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "jwt": {
+      "required": [
+        "token"
+      ],
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
